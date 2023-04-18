@@ -1,24 +1,21 @@
 const { Sale_product } = require("../../db.js");
 
-module.exports = async ({id, activityId}) => {
+module.exports = async ({ id, activityId }) => {
+  console.log(id + " y " + activityId);
   if (!id && !activityId)
-    throw new Error('(id) sale_product or activityId required')
+    throw new Error("(id) sale_product or activityId required");
 
   if (activityId) {
-    const allSaleProducts = await Sale_product.findAll(
-      {
-        where:
-        {
-          activityId
-        }
-      }
-    );
+    const allSaleProducts = await Sale_product.findAll({
+      where: {
+        activityId,
+      },
+    });
     return allSaleProducts;
   }
 
-  if (id) {    
+  if (id) {
     const sale_product = await Sale_product.findByPk(id);
-    return sale_product
+    return sale_product;
   }
-
 };

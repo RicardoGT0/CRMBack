@@ -9,6 +9,7 @@ const Sequelize = require("sequelize");
 const { sendMail } = require("../email/notifyBuyClient.js");
 
 module.exports = async (data) => {
+  console.log(data);
   //data={ quantity_sale, price_sale, productId, activityId }
   const product = await Product.findOne({ where: { id: data.productId } });
   //HAY QUE HACER product.dataValues.quantity
