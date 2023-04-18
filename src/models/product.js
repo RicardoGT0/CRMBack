@@ -17,7 +17,7 @@ module.exports = (database) => {
           is: /^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/,
           len: [1, 100],
         },
-      },
+      }, 
       quantity: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
       enable: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true },
       cost_price: {
